@@ -1,0 +1,41 @@
+const OS = Platform.OS;
+const ios = (OS == 'ios');
+const android = (OS == 'android');
+const isIPhoneX = (ios && height == 812 && width == 375);
+global.gDevice = {
+    ios: ios,
+    android: android,
+    isIPhoneX: isIPhoneX,
+}
+
+//最外围的容器
+commonWrap: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: global.gDevice.isIPhoneX ? 34 : 0,  //重要
+    backgroundColor: '#f6f6f6',
+    flex: 1,
+  },
+  
+//底部tab栏
+foot: {
+    width: width,
+    height: 49,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#EEEEEE',
+  },
+  
+  //例：
+  <View style={[styles.commonWrap]}>
+  	<ScrollView>
+  		//页面内容
+  	</ScrollView>
+  	<View style={[styles.foot]}>
+  		//底部tab栏
+  	</View>
+  </View>
