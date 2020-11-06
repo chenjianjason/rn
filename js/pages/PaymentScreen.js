@@ -1,10 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text,Button, StyleSheet } from 'react-native';
 
-const PaymentScreen = () => {
+const PaymentScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>PaymentScreen</Text>
+            <Button
+                title="go 首页"
+                onPress={() => navigation.navigate('首页')}
+            />
         </View>
     )
 }
